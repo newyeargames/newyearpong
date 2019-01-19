@@ -118,7 +118,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5652581601850628134}
   m_PrefabAsset: {fileID: 0}
-
 --- !u!50 &75832522
 Rigidbody2D:
   serializedVersion: 4
@@ -140,7 +139,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
-
 --- !u!1 &97785708
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +760,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f11fa2696b1ab641ae6e89badd7b455, type: 3}
-
 --- !u!1 &1197849018
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +807,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
 --- !u!1 &1228751132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,9 +1125,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.285
+    x: 0
     y: 0
-    width: 0.425
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
