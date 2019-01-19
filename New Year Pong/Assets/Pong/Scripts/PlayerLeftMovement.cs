@@ -12,17 +12,15 @@ public class PlayerLeftMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void PlayerMove(char direction)
     {
-		if (Input.GetKey(KeyCode.S))
-		{
-			transform.position -= transform.up * Time.deltaTime * sideSpeed;
-		}
-
-		if (Input.GetKey(KeyCode.W))
-		{
-			transform.position += transform.up * Time.deltaTime * sideSpeed;
-		}
+        if (direction == 'l')
+        {
+            transform.position -= transform.up * Time.deltaTime * sideSpeed;
+        }
+        else
+        {
+            transform.position -= transform.up * Time.deltaTime * sideSpeed;
+        }
     }
 }
