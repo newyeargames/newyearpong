@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-	public static int numberOfBalls = 1;
+	public static int numberOfBalls = 0;
 	private static float speed = 0;
 	private static int lastState = 0;
 
@@ -17,9 +17,11 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
-		if (speed == 0) 
+		if (numberOfBalls == 0) 
 		{
+			numberOfBalls = 1;
 			speed = initialSpeed;
+			lastState = 0;
 		}
 
 		float startingAngle;
@@ -99,7 +101,7 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls)
+			if (numberOfBalls < maxNumberOfBalls && transform.position.y > col.transform.position.y)
 			{
 				numberOfBalls += 1;
 				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
@@ -127,7 +129,7 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls)
+			if (numberOfBalls < maxNumberOfBalls && transform.position.y < col.transform.position.y)
 			{
 				numberOfBalls += 1;
 				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
@@ -155,7 +157,7 @@ public class Ball : MonoBehaviour
 			// Set Velocity with dir * speed
 			GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls)
+			if (numberOfBalls < maxNumberOfBalls && transform.position.x > col.transform.position.x)
 			{
 				numberOfBalls += 1;
 				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
@@ -183,7 +185,7 @@ public class Ball : MonoBehaviour
 			// Set Velocity with dir * speed
 			GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls)
+			if (numberOfBalls < maxNumberOfBalls && transform.position.y < col.transform.position.y)
 			{
 				numberOfBalls += 1;
 				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
