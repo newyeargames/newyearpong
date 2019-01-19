@@ -5,16 +5,20 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float speed = 5f;
+    public float initialSpeed = 5f;
+	public float maxSpeed = 5f;
+	public float acceleration = 5f;
+	private float speed;
 
     void Start()
     {
+		speed = initialSpeed;
+		float startingAngle = 2 * Mathf.PI * UnityEngine.Random.value;
         // Initial Velocity
-        GetComponent<Rigidbody2D>().velocity = Vector2.down * speed;
+		GetComponent<Rigidbody2D>().velocity = initialSpeed * (Vector2.down * Mathf.Sin(startingAngle) + Vector2.right * Mathf.Cos(startingAngle));
     }
 
-    float hitFactor(Vector2 ballPos, Vector2 racketPos,
-            float racketWidth)
+    float hitFactorTopBottom(Vector2 ballPos, Vector2 racketPos, float racketWidth)
     {
         // ascii art:
         // ||  1 <- at the top of the racket
@@ -22,8 +26,19 @@ public class Ball : MonoBehaviour
         // ||  0 <- at the middle of the racket
         // ||
         // || -1 <- at the bottom of the racket
-        return (ballPos.x - racketPos.x) / racketWidth;
+        return 2 * (ballPos.x - racketPos.x) / racketWidth;
     }
+
+	float hitFactorLeftRight(Vector2 ballPos, Vector2 racketPos, float racketWidth)
+	{
+		// ascii art:
+		// ||  1 <- at the top of the racket
+		// ||
+		// ||  0 <- at the middle of the racket
+		// ||
+		// || -1 <- at the bottom of the racket
+		return 2 * (ballPos.y - racketPos.y) / racketWidth;
+	}
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -33,11 +48,16 @@ public class Ball : MonoBehaviour
         //   col.transform.position is the racket's position
         //   col.collider is the racket's collider
 
-        // Hit the left Racket?
         if (col.gameObject.name == "PlayerBottom")
         {
+			// Increase speed
+			if (speed < maxSpeed)
+			{
+				speed += acceleration;
+			}
+
             // Calculate hit Factor
-            float x = hitFactor(transform.position,
+            float x = hitFactorTopBottom(transform.position,
                                 col.transform.position,
                                 col.collider.bounds.size.x);
 
@@ -47,12 +67,17 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
         }
-
-        // Hit the right Racket?
+			
         if (col.gameObject.name == "PlayerTop")
         {
+			// Increase speed
+			if (speed < maxSpeed)
+			{
+				speed += acceleration;
+			}
+
             // Calculate hit Factor
-            float x = hitFactor(transform.position,
+            float x = hitFactorTopBottom(transform.position,
                                 col.transform.position,
                                 col.collider.bounds.size.x);
 
@@ -62,6 +87,46 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
         }
+
+		if (col.gameObject.name == "PlayerLeft")
+		{
+			// Increase speed
+			if (speed < maxSpeed)
+			{
+				speed += acceleration;
+			}
+
+			// Calculate hit Factor
+			float y = hitFactorLeftRight(transform.position,
+				col.transform.position,
+				col.collider.bounds.size.y);
+
+			// Calculate direction, make length=1 via .normalized
+			Vector2 dir = new Vector2(1, y).normalized;
+
+			// Set Velocity with dir * speed
+			GetComponent<Rigidbody2D>().velocity = dir * speed;
+		}
+
+		if (col.gameObject.name == "PlayerRight")
+		{
+			// Increase speed
+			if (speed < maxSpeed)
+			{
+				speed += acceleration;
+			}
+
+			// Calculate hit Factor
+			float y = hitFactorLeftRight(transform.position,
+				col.transform.position,
+				col.collider.bounds.size.y);
+
+			// Calculate direction, make length=1 via .normalized
+			Vector2 dir = new Vector2(-1, y).normalized;
+
+			// Set Velocity with dir * speed
+			GetComponent<Rigidbody2D>().velocity = dir * speed;
+		}
     }
 
 }
