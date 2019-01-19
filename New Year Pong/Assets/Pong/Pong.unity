@@ -1059,28 +1059,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!1 &1834138343 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6161004999408794950, guid: 1d6cad3269565b149bd7666afacb568c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6161005001209022369}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1834138347
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834138343}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &1941173308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,6 +1366,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1066126075666982462, guid: e60817da46066ef46bb95e49358341ae,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1066126075666982432, guid: e60817da46066ef46bb95e49358341ae,
         type: 3}
       propertyPath: sideSpeed
@@ -1462,6 +1445,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2166240094733839955, guid: 185d1fac7db962b40acf795a4d28c122,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2166240094733839955, guid: 185d1fac7db962b40acf795a4d28c122,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2166240094733839953, guid: 185d1fac7db962b40acf795a4d28c122,
         type: 3}
       propertyPath: sideSpeed
@@ -1535,6 +1528,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561492132678196068, guid: 442899ea3f50eb1438a22c87423e021c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2561492132678196090, guid: 442899ea3f50eb1438a22c87423e021c,
         type: 3}
@@ -1689,6 +1687,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5652581601179615679, guid: 663d5891d59532149add983a91dd161a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5652581601179615665, guid: 663d5891d59532149add983a91dd161a,
         type: 3}
       propertyPath: sideSpeed
@@ -1706,11 +1709,6 @@ PrefabInstance:
     - target: {fileID: 6161004999408794950, guid: 1d6cad3269565b149bd7666afacb568c,
         type: 3}
       propertyPath: m_Name
-      value: Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161004999408794950, guid: 1d6cad3269565b149bd7666afacb568c,
-        type: 3}
-      propertyPath: m_TagString
       value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 6161004999408794952, guid: 1d6cad3269565b149bd7666afacb568c,
@@ -1768,43 +1766,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6161004999408794955, guid: 1d6cad3269565b149bd7666afacb568c,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161004999408794955, guid: 1d6cad3269565b149bd7666afacb568c,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
-        type: 3}
-      propertyPath: speed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
         type: 3}
       propertyPath: acceleration
-      value: 1
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
+        type: 3}
+      propertyPath: maxNumberOfBalls
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
         type: 3}
       propertyPath: initialSpeed
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6161004999408794954, guid: 1d6cad3269565b149bd7666afacb568c, type: 3}
+    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6cad3269565b149bd7666afacb568c, type: 3}
 --- !u!1001 &6207159278616760451
 PrefabInstance:
