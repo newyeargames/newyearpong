@@ -865,6 +865,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1066126075666982432, guid: e60817da46066ef46bb95e49358341ae,
+        type: 3}
+      propertyPath: sideSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e60817da46066ef46bb95e49358341ae, type: 3}
 --- !u!1001 &2166240095182386541
@@ -934,6 +939,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2166240094733839953, guid: 185d1fac7db962b40acf795a4d28c122,
+        type: 3}
+      propertyPath: sideSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 185d1fac7db962b40acf795a4d28c122, type: 3}
 --- !u!1001 &2561492131863477044
@@ -1002,6 +1012,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561492132678196090, guid: 442899ea3f50eb1438a22c87423e021c,
+        type: 3}
+      propertyPath: sideSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 442899ea3f50eb1438a22c87423e021c, type: 3}
@@ -1151,6 +1166,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5652581601179615665, guid: 663d5891d59532149add983a91dd161a,
+        type: 3}
+      propertyPath: sideSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 663d5891d59532149add983a91dd161a, type: 3}
 --- !u!1001 &6161005001209022369
@@ -1219,6 +1239,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
+        type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
+        type: 3}
+      propertyPath: acceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161004999408794957, guid: 1d6cad3269565b149bd7666afacb568c,
+        type: 3}
+      propertyPath: initialSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6161004999408794954, guid: 1d6cad3269565b149bd7666afacb568c, type: 3}
