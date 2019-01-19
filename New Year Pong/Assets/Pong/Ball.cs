@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
         // ||  0 <- at the middle of the racket
         // ||
         // || -1 <- at the bottom of the racket
-        return (ballPos.x - racketPos.x) / racketWidth;
+        return 2 * (ballPos.x - racketPos.x) / racketWidth;
     }
 
 	float hitFactorLeftRight(Vector2 ballPos, Vector2 racketPos, float racketWidth)
@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour
 		// ||  0 <- at the middle of the racket
 		// ||
 		// || -1 <- at the bottom of the racket
-		return (ballPos.y - racketPos.y) / racketWidth;
+		return 2 * (ballPos.y - racketPos.y) / racketWidth;
 	}
 
     void OnCollisionEnter2D(Collision2D col)
