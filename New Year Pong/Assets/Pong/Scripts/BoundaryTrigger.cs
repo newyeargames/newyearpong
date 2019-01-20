@@ -10,8 +10,7 @@ public class BoundaryTrigger : MonoBehaviour
         if (other.tag == "Ball")
         {
 			Destroy(other.gameObject);
-			Ball.numberOfBalls -= 1;
-            Debug.Log(other.tag);
+            Ball.numberOfBalls -= 1;
             // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
