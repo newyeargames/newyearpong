@@ -13,7 +13,9 @@ public class Ball : MonoBehaviour
     public float initialSpeed = 6f;
 	public float maxSpeed = 100f;
 	public float acceleration = 0.25f;
-	public int maxNumberOfBalls = 8;
+	public int maxNumberOfBalls = 15;
+    public float multiplyChance = 0.7f;
+    public UnityEngine.Color[] colors = { Color.cyan, Color.green, Color.red, Color.yellow };
 
     void Start()
     {
@@ -47,7 +49,22 @@ public class Ball : MonoBehaviour
 
        	// Initial Velocity
 		GetComponent<Rigidbody2D>().velocity = speed * (Vector2.up * Mathf.Sin(startingAngle) + Vector2.right * Mathf.Cos(startingAngle));
-	
+
+        //Fetch the Renderer from the GameObject
+        SpriteRenderer rend = GetComponent<SpriteRenderer>();
+
+        //Set the main Color of the Material to green
+        rend.color = colors[Mathf.FloorToInt(Random.value * 4)];
+
+    }
+
+    void multiply()
+    {
+        if (numberOfBalls < maxNumberOfBalls && Random.value <= multiplyChance)
+        {
+            numberOfBalls += 1;
+            Instantiate(duplicatingPrefab, transform.position, transform.rotation);
+        }
     }
 
     float hitFactorTopBottom(Vector2 ballPos, Vector2 racketPos, float racketWidth)
@@ -101,10 +118,9 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls && transform.position.y > col.transform.position.y)
+			if (transform.position.y > col.transform.position.y)
 			{
-				numberOfBalls += 1;
-				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
+				multiply();
 			}
 		}
 			
@@ -129,10 +145,9 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls && transform.position.y < col.transform.position.y)
+			if (transform.position.y < col.transform.position.y)
 			{
-				numberOfBalls += 1;
-				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
+				multiply();
 			}
         }
 
@@ -159,8 +174,7 @@ public class Ball : MonoBehaviour
 
 			if (numberOfBalls < maxNumberOfBalls && transform.position.x > col.transform.position.x)
 			{
-				numberOfBalls += 1;
-				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
+				multiply();
 			}
 		}
 
@@ -187,8 +201,7 @@ public class Ball : MonoBehaviour
 
 			if (numberOfBalls < maxNumberOfBalls && transform.position.x < col.transform.position.x)
 			{
-				numberOfBalls += 1;
-				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
+				multiply();
 			}
 		}
     }

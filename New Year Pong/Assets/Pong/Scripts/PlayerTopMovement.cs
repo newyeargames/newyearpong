@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerTopMovement : MonoBehaviour
 {
-    public float sideSpeed = 2f;
+    public float sideSpeed = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -12,15 +12,16 @@ public class PlayerTopMovement : MonoBehaviour
         
     }
 
-    public void PlayerMove(char direction)
+    public void PlayerMove(string direction)
     {
-        if (direction == 'l')
+        if (direction[1] == 'l')
         {
-            transform.position -= transform.right * Time.deltaTime * sideSpeed;
+            transform.position -= transform.right * Time.deltaTime * sideSpeed * (direction[2]-48);
         }
         else
         {
-            transform.position += transform.right * Time.deltaTime * sideSpeed;
+            transform.position += transform.right * Time.deltaTime * sideSpeed * (direction[2]-48);
         }
     }
+
 }
