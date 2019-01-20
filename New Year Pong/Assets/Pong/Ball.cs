@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-	public static int numberOfBalls = 1;
+	public static int numberOfBalls = 0;
 	private static float speed = 0;
 	private static int lastState = 0;
 
@@ -19,9 +19,11 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
-		if (speed == 0) 
+		if (numberOfBalls == 0) 
 		{
+			numberOfBalls = 1;
 			speed = initialSpeed;
+			lastState = 0;
 		}
 
 		float startingAngle;
@@ -116,7 +118,10 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-            multiply();
+			if (transform.position.y > col.transform.position.y)
+			{
+				multiply();
+			}
 		}
 			
         if (col.gameObject.name == "PlayerTop")
@@ -140,7 +145,10 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-            multiply();
+			if (transform.position.y < col.transform.position.y)
+			{
+				multiply();
+			}
         }
 
 		if (col.gameObject.name == "PlayerLeft")
@@ -164,8 +172,11 @@ public class Ball : MonoBehaviour
 			// Set Velocity with dir * speed
 			GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-            multiply();
-        }
+			if (numberOfBalls < maxNumberOfBalls && transform.position.x > col.transform.position.x)
+			{
+				multiply();
+			}
+		}
 
 		if (col.gameObject.name == "PlayerRight")
 		{
@@ -188,8 +199,11 @@ public class Ball : MonoBehaviour
 			// Set Velocity with dir * speed
 			GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-            multiply();
-        }
+			if (numberOfBalls < maxNumberOfBalls && transform.position.x < col.transform.position.x)
+			{
+				multiply();
+			}
+		}
     }
 
 }
