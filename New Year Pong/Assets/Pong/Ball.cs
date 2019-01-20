@@ -15,6 +15,7 @@ public class Ball : MonoBehaviour
 	public float acceleration = 0.25f;
 	public int maxNumberOfBalls = 15;
     public float multiplyChance = 0.7f;
+    public UnityEngine.Color[] colors = { Color.cyan, Color.green, Color.red, Color.yellow };
 
     void Start()
     {
@@ -46,7 +47,13 @@ public class Ball : MonoBehaviour
 
        	// Initial Velocity
 		GetComponent<Rigidbody2D>().velocity = speed * (Vector2.up * Mathf.Sin(startingAngle) + Vector2.right * Mathf.Cos(startingAngle));
-	
+
+        //Fetch the Renderer from the GameObject
+        SpriteRenderer rend = GetComponent<SpriteRenderer>();
+
+        //Set the main Color of the Material to green
+        rend.color = colors[Mathf.FloorToInt(Random.value * 4)];
+
     }
 
     void multiply()
