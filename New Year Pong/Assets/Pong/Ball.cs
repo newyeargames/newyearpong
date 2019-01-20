@@ -13,7 +13,8 @@ public class Ball : MonoBehaviour
     public float initialSpeed = 6f;
 	public float maxSpeed = 100f;
 	public float acceleration = 0.25f;
-	public int maxNumberOfBalls = 8;
+	public int maxNumberOfBalls = 15;
+    public float multiplyChance = 0.7f;
 
     void Start()
     {
@@ -46,6 +47,15 @@ public class Ball : MonoBehaviour
        	// Initial Velocity
 		GetComponent<Rigidbody2D>().velocity = speed * (Vector2.up * Mathf.Sin(startingAngle) + Vector2.right * Mathf.Cos(startingAngle));
 	
+    }
+
+    void multiply()
+    {
+        if (numberOfBalls < maxNumberOfBalls && Random.value <= multiplyChance)
+        {
+            numberOfBalls += 1;
+            Instantiate(duplicatingPrefab, transform.position, transform.rotation);
+        }
     }
 
     float hitFactorTopBottom(Vector2 ballPos, Vector2 racketPos, float racketWidth)
@@ -99,11 +109,7 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls)
-			{
-				numberOfBalls += 1;
-				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
-			}
+            multiply();
 		}
 			
         if (col.gameObject.name == "PlayerTop")
@@ -127,11 +133,7 @@ public class Ball : MonoBehaviour
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls)
-			{
-				numberOfBalls += 1;
-				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
-			}
+            multiply();
         }
 
 		if (col.gameObject.name == "PlayerLeft")
@@ -155,12 +157,8 @@ public class Ball : MonoBehaviour
 			// Set Velocity with dir * speed
 			GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls)
-			{
-				numberOfBalls += 1;
-				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
-			}
-		}
+            multiply();
+        }
 
 		if (col.gameObject.name == "PlayerRight")
 		{
@@ -183,12 +181,8 @@ public class Ball : MonoBehaviour
 			// Set Velocity with dir * speed
 			GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls)
-			{
-				numberOfBalls += 1;
-				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
-			}
-		}
+            multiply();
+        }
     }
 
 }
