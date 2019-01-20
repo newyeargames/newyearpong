@@ -185,7 +185,7 @@ public class Ball : MonoBehaviour
 			// Set Velocity with dir * speed
 			GetComponent<Rigidbody2D>().velocity = dir * speed;
 
-			if (numberOfBalls < maxNumberOfBalls && transform.position.y < col.transform.position.y)
+			if (numberOfBalls < maxNumberOfBalls && transform.position.x < col.transform.position.x)
 			{
 				numberOfBalls += 1;
 				Instantiate(duplicatingPrefab, transform.position, transform.rotation);
