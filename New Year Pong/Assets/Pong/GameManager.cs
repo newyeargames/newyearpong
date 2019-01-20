@@ -15,16 +15,16 @@ public class GameManager : MonoBehaviour
         switch(input[0])
         {
             case '0':
-                player1.GetComponent<PlayerTopMovement>().PlayerMove(input[1]);
+                player1.GetComponent<PlayerTopMovement>().PlayerMove(input);
                 break;
             case '1':
-                player2.GetComponent<PlayerRightMovement>().PlayerMove(input[1]);
+                player2.GetComponent<PlayerRightMovement>().PlayerMove(input);
                 break;
             case '2':
-                player3.GetComponent<PlayerBottomMovement>().PlayerMove(input[1]);
+                player3.GetComponent<PlayerBottomMovement>().PlayerMove(input);
                 break;
             case '3':
-                player4.GetComponent<PlayerLeftMovement>().PlayerMove(input[1]);
+                player4.GetComponent<PlayerLeftMovement>().PlayerMove(input);
                 break;
 
         }
