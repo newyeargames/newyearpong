@@ -6,12 +6,6 @@ public class PlayerLeftMovement : MonoBehaviour
 {
 	public float sideSpeed = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void PlayerMove(string direction)
     {
         if (direction[1] == 'l')
