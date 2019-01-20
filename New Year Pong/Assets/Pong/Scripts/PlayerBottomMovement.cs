@@ -12,18 +12,16 @@ public class PlayerBottomMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void PlayerMove(char direction)
     {
-        if (Input.GetKey("a"))
+        if (direction == 'l')
         {
             transform.position -= transform.right * Time.deltaTime * sideSpeed;
         }
-
-        if (Input.GetKey("d"))
+        else
         {
             transform.position += transform.right * Time.deltaTime * sideSpeed;
         }
-
     }
+
 }
